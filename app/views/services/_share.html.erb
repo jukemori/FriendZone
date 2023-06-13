@@ -1,7 +1,7 @@
 <div class="container-services mt-5 pt-3"  id="services">
   <div class="row justify-content-center">
     <div class="col-sm-8 my-3">
-      <%= form_with(url: services_path, method: :get, class: "d-flex") do |form|%>
+      <%= form_with(url: services_path, method: :get, class: "d-flex search-bar") do |form|%>
         <%= form.text_field :query, placeholder: "Type a keyword", class: "form-control"%>
         <%= form.number_field :min_price, placeholder: "Min Price", class: "form-control" %>
         <%= form.number_field :max_price, placeholder: "Max Price", class: "form-control" %>

@@ -27,8 +27,60 @@ testuser = User.create(
   email: "test@email.com",
   password: "123456"
 )
+photo_url = "https://kitt.lewagon.com/placeholder/users/ssaunier"
+file = URI.open(photo_url)
+testuser.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
+testuser.save
 
 puts "created test user"
+
+doug = User.create(
+  name: "Doug Berkley",
+  interest: Faker::Hobby.activity,
+  location: "Meguro,Tokyo",
+  sex: "male",
+  description: Faker::Quote.most_interesting_man_in_the_world,
+  age: 30,
+  email: "doug@email.com",
+  password: "123456"
+)
+
+
+puts "created Doug"
+
+
+dougservice = Service.new(
+  user: doug,
+  title: "Soul mate",
+  description: Faker::Quote.most_interesting_man_in_the_world,
+  price: 99
+)
+
+
+dougservice.photos.attach(io: File.open("./app/assets/images/doug/IMG_5519.jpg"), filename: 'user.png', content_type: 'image/png')
+dougservice.save
+dougservice.photos.attach(io: File.open("./app/assets/images/doug/IMG_5520.jpg"), filename: 'user.png', content_type: 'image/png')
+dougservice.save
+dougservice.photos.attach(io: File.open("./app/assets/images/doug/IMG_5521.jpg"), filename: 'user.png', content_type: 'image/png')
+dougservice.save
+dougservice.photos.attach(io: File.open("./app/assets/images/doug/IMG_5522.jpg"), filename: 'user.png', content_type: 'image/png')
+dougservice.save
+dougservice.photos.attach(io: File.open("./app/assets/images/doug/IMG_5523.jpg"), filename: 'user.png', content_type: 'image/png')
+dougservice.save
+
+
+puts "created Doug service"
+
+5.times do
+Review.create!(
+  rating: rand(3..5),
+  comment: Faker::Restaurant.review,
+  user: User.where.not(id: doug).sample,
+  service: dougservice
+  )
+end
+
+  puts "created Doug review"
 
 john = User.create(
     name: "John Doe",
@@ -213,53 +265,7 @@ Booking.create!(
 puts "created #{Booking.count} bookings!"
 
 
-doug = User.create(
-  name: "Doug Berkley",
-  interest: Faker::Hobby.activity,
-  location: "Meguro,Tokyo",
-  sex: "male",
-  description: Faker::Quote.most_interesting_man_in_the_world,
-  age: 30,
-  email: "doug@email.com",
-  password: "123456"
-)
 
-
-puts "created Doug"
-
-
-dougservice = Service.new(
-  user: doug,
-  title: "Soul mate",
-  description: Faker::Quote.most_interesting_man_in_the_world,
-  price: 99
-)
-
-
-dougservice.photos.attach(io: File.open("./app/assets/images/doug/IMG_5519.jpg"), filename: 'user.png', content_type: 'image/png')
-dougservice.save
-dougservice.photos.attach(io: File.open("./app/assets/images/doug/IMG_5520.jpg"), filename: 'user.png', content_type: 'image/png')
-dougservice.save
-dougservice.photos.attach(io: File.open("./app/assets/images/doug/IMG_5521.jpg"), filename: 'user.png', content_type: 'image/png')
-dougservice.save
-dougservice.photos.attach(io: File.open("./app/assets/images/doug/IMG_5522.jpg"), filename: 'user.png', content_type: 'image/png')
-dougservice.save
-dougservice.photos.attach(io: File.open("./app/assets/images/doug/IMG_5523.jpg"), filename: 'user.png', content_type: 'image/png')
-dougservice.save
-
-
-puts "created Doug service"
-
-5.times do
-Review.create!(
-  rating: rand(3..5),
-  comment: Faker::Restaurant.review,
-  user: User.where.not(id: doug).sample,
-  service: dougservice
-  )
-end
-
-  puts "created Doug review"
 
   gui = User.create(
     name: "Gui",
