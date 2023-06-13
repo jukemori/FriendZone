@@ -21,16 +21,20 @@ justify-content: space-between;
 .location {
   display: flex;
   align-items: center;
+  i{
+    margin-right: 4px;
+  }
 }
 
 .price {
   display: flex;
   align-items: center;
+  i{
+    margin-right: 4px;
+  }
 }
 
-.location i{
-  margin-right: 4px;
-}
+
 
 
 .card-service {
@@ -73,9 +77,18 @@ justify-content: space-between;
   left: 10px;
 }
 
+.favorite-mark {
+  position: absolute;
+  top: 0.7rem;
+  left: 0.7rem;
+  i {
+    font-size: 1.5rem;
+  }
+}
+
 
 // Smallest device
-@media (min-width: 370px) {
+@media (min-width: 100px) {
   .cards-services {
     grid-template-columns: 1fr;
 
