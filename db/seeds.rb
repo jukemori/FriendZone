@@ -27,8 +27,8 @@ testuser = User.create(
   email: "test@email.com",
   password: "123456"
 )
-photo_url = "https://kitt.lewagon.com/placeholder/users/ssaunier"
-file = URI.open(photo_url)
+
+file = URI.open("https://kitt.lewagon.com/placeholder/users/ssaunier")
 testuser.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
 testuser.save
 

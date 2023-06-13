@@ -33,7 +33,7 @@ video {
   left: 10rem;
 }
 
-@media (min-width: 100px) {
+@media (min-width: 100px) and (max-width: 768px){
   video {
     margin-top: 4rem;
     width: 100%;
