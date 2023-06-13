@@ -27,14 +27,14 @@
             <div class="card-product-infos">
               <div>
                 <h5><%= "#{booking.service.user.name}" %></h5>
-                <h5><%= "#{booking.service.title}" %></h5>
-                <h5><%= "#{booking.service.user.location}" %></h5>
+                <h6 class="text-muted mt-3"><%= "#{booking.service.title}" %></h6>
+                <h6 class="text-muted"><%= "#{booking.service.user.location}" %></h6>
               </div>
               <div>
-                <p>From <%=  booking.start_date.strftime("%B %d, %Y at %I:%M %p") %></p>
-                <p>To <%= booking.end_date.strftime("%B %d, %Y at %I:%M %p") %></p>
+                <p>From <%=  booking.start_date.strftime("%b %e, %l:%M %p") %></p>
+                <p>To <%= booking.end_date.strftime("%b %e, %l:%M %p") %></p>
               </div>
-              <h4><%= booking.status%></h4>
+              <h6><%= booking.status%></h6>
               <% if policy(booking).edit? %>
                 <div class=".text-right">
                   <%= link_to "Cancel", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure? 😢"},class:"btn btn-primary"%>
@@ -62,14 +62,14 @@
                 <div class="card-product-infos">
                   <div>
                     <h5><%= "#{booking.service.user.name}" %></h5>
-                    <h5><%= "#{booking.service.title}" %></h5>
-                    <h5><%= "#{booking.service.user.location}" %></h5>
+                    <h6 class="text-muted mt-3"><%= "#{booking.service.title}" %></h6>
+                    <h6 class="text-muted"><%= "#{booking.service.user.location}" %></h6>
                   </div>
                   <div>
-                    <p>From <%= booking.start_date.strftime("%B %d, %Y at %I:%M %p") %></p>
-                    <p>To <%= booking.end_date.strftime("%B %d, %Y at %I:%M %p") %></p>
+                    <p>From <%= booking.start_date.strftime("%b %e, %l:%M %p") %></p>
+                    <p>To <%= booking.end_date.strftime("%b %e, %l:%M %p") %></p>
                   </div>
-                  <h4><%= booking.status%></h4>
+                  <h6><%= booking.status%></h6>
                   <% if booking.status == "accepted"%>
                     <% if policy(booking).edit? %>
                       <div class="text-right">
@@ -125,10 +125,10 @@
               <div class="card-product-infos">
                 <h5>Booked by <%= "#{booking.user.name}" %></h5>
                 <div>
-                  <p>From <%= booking.start_date.strftime("%B %d, %Y at %I:%M %p") %></p>
-                  <p>To <%= booking.end_date.strftime("%B %d, %Y at %I:%M %p") %></p>
+                  <p>From <%= booking.start_date.strftime("%b %e, %l:%M %p") %></p>
+                  <p>To <%= booking.end_date.strftime("%b %e, %l:%M %p") %></p>
                 </div>
-                <h4><%= booking.status%></h4>
+                <h6><%= booking.status%></h6>
                 <div>
                   <%= simple_form_for booking, html: { onchange:"submit()"}  do |t| %>
                     <%= t.input :status, collection: ["pending","rejected", "accepted"], include_blank: false  %>
@@ -153,10 +153,10 @@
                 <div class="card-product-infos">
                   <h5>Booked by <%= "#{booking.user.name}" %></h5>
                   <div>
-                    <p>From <%= booking.start_date.strftime("%B %d, %Y at %I:%M %p") %></p>
-                    <p>To <%= booking.end_date.strftime("%B %d, %Y at %I:%M %p") %></p>
+                    <p>From <%= booking.start_date.strftime("%b %e, %l:%M %p") %></p>
+                    <p>To <%= booking.end_date.strftime("%b %e, %l:%M %p") %></p>
                   </div>
-                  <h4><%= booking.status%></h4>
+                  <h6><%= booking.status%></h6>
                   <div class="m-4">
                     <%= simple_form_for booking, html: { onchange:"submit()"}  do |t| %>
                       <%= t.input :status, collection: ["pending","rejected", "accepted"], include_blank: false %>

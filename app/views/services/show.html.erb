@@ -1,7 +1,4 @@
-<div class="service-show-container">
-  <div class="service-title">
-    <h1><%= @service.title %></h1>
-  </div>
+<div class="container pt-5 mt-3">
   <div class="service-container">
     <div class="left">
       <div class="map-profile">
@@ -52,23 +49,14 @@
           </div>
         </div>
       </div>
-      <div class="container-review" data-controller="review" >
-        <div class="reviews" data-review-target='items'>
-          <h1> <%= @reviews.length %> Reviews </h1>
-          <% @reviews.each do |review| %>
-            <%= render "reviews/review", review: review %>
-          <% end %>
-        </div>
-        <%= render "reviews/form", service: @service, review: Review.new %>
-      </div>
     </div>
     <div class="right">
       <div class="map-show">
-        <div  style="width: 30vw; height: 40vh;"
+        <div class="mapmap"
         data-controller="map"
         data-map-markers-value="<%= @marker.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-        <p>Location: <%= @service.user.location %></p>
+        <p><i class="fa-solid fa-location-dot"></i> <%= @service.user.location %></p>
       </div>
       <div class="to-booking">
         <%# put condition for delete button %>
@@ -103,5 +91,14 @@
           </div>
         <% end %>
       </div>
+    </div>
+    <div class="container" data-controller="review" >
+      <div class="reviews" data-review-target='items'>
+        <h2> <%= @reviews.length %> Reviews </h2>
+        <% @reviews.each do |review| %>
+          <%= render "reviews/review", review: review %>
+        <% end %>
+      </div>
+      <%= render "reviews/form", service: @service, review: Review.new %>
     </div>
   </div>
