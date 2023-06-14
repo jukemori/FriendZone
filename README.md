@@ -4,8 +4,7 @@
 An innovative app that allows users to book friend for a specified duration, providing personalized experiences and connections. Whether for social events or casual outings, it offers a safe and convenient platform to select and hire a friend-like companion.
 
 
-_DROP SCREENSHOT HERE_
-<br>
+<img width="400" alt="Screen Shot 2021-06-18 at 14 19 13" src="app/assets/images/Screenshot 2023-06-13 at 23.07.27.png">
 App home: https://happyfriendzone.herokuapp.com/
 
 
